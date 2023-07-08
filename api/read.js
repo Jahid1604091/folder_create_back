@@ -30,11 +30,8 @@ function createFolder(folders, parentId = null) {
 
 router.get('/', async (req, res) => {
 
-    
     try {
-       
         const folders = await FolderModel.find({});
-       
         if (folders.length === 0) {
             res.status(201).json({ message: 'No Folder' })
         }

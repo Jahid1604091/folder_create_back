@@ -3,7 +3,7 @@ const express = require('express');
 const FolderModel = require('../FolderModel');
 const createPath = require('../utils/createPath');
 const router = express.Router();
-
+const base = process.env.PWD;
 router.delete('/:id', async (req, res) => {
     try {
         const folder = await FolderModel.findById(req.params.id);
@@ -28,7 +28,7 @@ router.delete('/:id', async (req, res) => {
 
             //delete children from dir
             const path = createPath(folders,folder.parentId);
-            let pathDir = './';
+            let pathDir = base+'/';
             for (let i = 0; i < Object.values(path).length; i++) {
                 pathDir = pathDir + path[i] + '/'
             }
