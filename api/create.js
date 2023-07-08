@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
             const folders = await FolderModel.find({});
             const path = createPath(folders, folder.parentId);
 
-            let pathDir = appDir+'/';
+            let pathDir = appDir;
             for (let i = 0; i < Object.values(path).length; i++) {
                 pathDir = pathDir + path[i] + '/'
             }
