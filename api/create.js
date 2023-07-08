@@ -3,6 +3,8 @@ const express = require('express');
 const FolderModel = require('../FolderModel');
 const createPath = require('../utils/createPath');
 const router = express.Router();
+const {dirname} = require('path');
+const appDir = dirname(require.main.filename)
 
 router.post('/', async (req, res) => {
     try {
@@ -28,7 +30,7 @@ router.post('/', async (req, res) => {
             const folders = await FolderModel.find({});
             const path = createPath(folders, folder.parentId);
 
-            let pathDir = './';
+            let pathDir = appDir+'/';
             for (let i = 0; i < Object.values(path).length; i++) {
                 pathDir = pathDir + path[i] + '/'
             }
