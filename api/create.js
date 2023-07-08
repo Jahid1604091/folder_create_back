@@ -35,6 +35,7 @@ router.post('/', async (req, res) => {
             // let root = Object.values(dirFolders).filter(f => f === 'root')
 
             let pathDir = base+'/';
+            console.log(pathDir)
         
             for (let i = 0; i < Object.values(path).length; i++) {
                 pathDir = pathDir + path[i] + '/'
